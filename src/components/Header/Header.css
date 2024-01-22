@@ -1,0 +1,9 @@
+.header-info a {
+    margin-right: 24px;
+    color: #1E55B3;
+    font-size: 18px;
+}
+
+.header-info a:hover {
+    color: #FE5D64;
+}

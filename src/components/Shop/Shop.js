@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
+import { addToDb } from '../../utilities/localStorageAdd';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -14,8 +15,9 @@ const Shop = () => {
     }, []);
 
     const handleAddToCart = clickedId => {
-        const newCart = [...cart, clickedId];
-        console.log(newCart);
+        let newCart = [];
+        newCart = [...cart, clickedId];
+        addToDb(clickedId);
         setCart(newCart);
     }
 
@@ -30,8 +32,7 @@ const Shop = () => {
                     ></Product>)
                 }
             </div>
-            <div className="order-container bg-purple-50 ml-10" >
-                {/* <h3 className='mt-8 ml-3'>Order Summary</h3> */}
+            <div className="order-container bg-orange-100 ml-10" style={{ 'backgroundColor': '#f7c5c7' }}>
                 <Cart cart={cart}>  </Cart>
             </div>
         </div>

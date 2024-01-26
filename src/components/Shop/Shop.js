@@ -14,11 +14,20 @@ const Shop = () => {
             .then(data => setProducts(data))
     }, []);
 
-    const handleAddToCart = clickedId => {
+    const handleAddToCart = clickedProduct => {
         let newCart = [];
-        newCart = [...cart, clickedId];
-        addToDb(clickedId);
+        const exists = cart.find(product => product.id === clickedProduct.id);
+        if (!exists) {
+            clickedProduct.quantity = 1;
+            newCart = [...cart, clickedProduct];
+        }
+        else {
+            const rest = cart.filter(product => product.id !== clickedProduct.id);
+            exists.quantity = exists.quantity + 1;
+            newCart = [...rest, exists];
+        }
         setCart(newCart);
+        addToDb(clickedProduct.id);
     }
 
     return (

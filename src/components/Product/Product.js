@@ -18,7 +18,7 @@ const Product = (props) => {
                     <br />
                 </div>
             </div>
-            <button onClick={() => handleAddToCart(product.id)} className='btn-cart p-2 bg-purple-300 w-full absolute bottom-0 text-base flex justify-center items-center hover:bg-purple-400 duration-500' style={{ 'borderRadius': '0px 0px 8px 8px' }}>Add To Cart
+            <button onClick={() => handleAddToCart(product)} className='btn-cart p-2 bg-slate-300 w-full absolute bottom-0 text-base flex justify-center items-center hover:bg-slate-500 hover:text-white duration-500' style={{ 'borderRadius': '0px 0px 8px 8px' }}>Add To Cart
                 <FontAwesomeIcon className='pl-2' icon={faCartPlus}></FontAwesomeIcon>
             </button>
         </div>

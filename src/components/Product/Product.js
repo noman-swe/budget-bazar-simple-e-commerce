@@ -1,22 +1,26 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 const Product = (props) => {
-    // console.log(props.product);
-    const { img, name, price, seller, ratings } = props.product;
+    const { product, handleAddToCart } = props;
+    const { img, name, price, seller, ratings } = product;
     return (
-        <div className='product border  rounded-lg relative' style={{ 'height': '500px' }}>
+        <div className='product border w-80 rounded-lg relative' style={{ 'height': '540px' }}>
 
-            <div className="product-wrapper px-5 pt-5 ">
+            <div className="product-wrapper px-3 pt-3 ">
                 <img className='w-25 rounded-lg' src={img} alt="" />
-                <div className="info">
-                    <h3>{name.length > (name < 25) ? name.slice(0, 25) : name}</h3>
-                    <p>Price: {price}</p>
-                    <small>{seller}</small>
-                    <p>{ratings}</p>
+                <div className="info text-lg">
+                    <h3 className='font-normal'>{name.length > (name < 25) ? name.slice(0, 25) : name}</h3>
+                    <p className='mb-3'>Price: {price}</p>
+                    <small>Seller: {seller}</small> <br />
+                    <small>Ratings: {ratings}</small>
                     <br />
                 </div>
             </div>
-            <button className='btn-cart p-2 bg-purple-300 w-full absolute bottom-0' style={{ 'borderRadius': '0px 0px 8px 8px' }}>Add To Cart</button>
+            <button onClick={() => handleAddToCart(product.id)} className='btn-cart p-2 bg-purple-300 w-full absolute bottom-0 text-base flex justify-center items-center hover:bg-purple-400 duration-500' style={{ 'borderRadius': '0px 0px 8px 8px' }}>Add To Cart
+                <FontAwesomeIcon className='pl-2' icon={faCartPlus}></FontAwesomeIcon>
+            </button>
         </div>
     );
 };

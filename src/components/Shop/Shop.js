@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDb } from '../../utilities/localStorageAdd';
+import { addToDb, getShoppingCart } from '../../utilities/localStorageAdd';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
@@ -13,6 +13,22 @@ const Shop = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
+
+    // to show added/storedItems in order summary
+    useEffect(() => {
+        const storedCart = getShoppingCart();
+        let savedCart = [];
+        for (const storedId in storedCart) {
+            const addedProduct = products.find(product => product.id === storedId);
+            if (addedProduct) {
+                const quantity = storedCart[storedId];
+                addedProduct.quantity = quantity;
+                savedCart.push(addedProduct);
+            }
+        }
+        setCart(savedCart);
+
+    }, [products])
 
     const handleAddToCart = clickedProduct => {
         let newCart = [];

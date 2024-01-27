@@ -1,19 +1,14 @@
-import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import { addToDb } from '../../utilities/localStorageAdd';
 import useCart from '../../hooks/useCart';
+import useProducts from '../../hooks/useProducts';
+import { Link } from 'react-router-dom';
 
 const Shop = () => {
-    const [products, setProducts] = useState([]);
+    const [products] = useProducts();
     const [cart, setCart] = useCart(products);
-
-    useEffect(() => {
-        fetch('products.json')
-            .then(res => res.json())
-            .then(data => setProducts(data))
-    }, []);
 
     const handleAddToCart = clickedProduct => {
         let newCart = [];
@@ -43,8 +38,14 @@ const Shop = () => {
                 }
             </div>
             <div className="order-container ml-10" style={{ 'backgroundColor': '#EBD8D1' }}>
-                {/*  style={{ 'backgroundColor': '#f7c5c7' }} */}
-                <Cart cart={cart}>  </Cart>
+                {
+                    <Cart cart={cart}>
+                        
+                        <Link to={'/orders'}>
+                            <button>Review Order</button>
+                        </Link>
+                    </Cart>
+                }
             </div>
         </div>
     );

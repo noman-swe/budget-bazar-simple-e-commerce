@@ -11,9 +11,10 @@ const Header = () => {
             </div>
 
             <div className="header-info mr-32 decoration-none">
-                <Link to={'/'} >Order</Link>
-                <Link to={'/shop'} >Order Review</Link>
-                <Link to={'/product'} >Manage Inventory</Link>
+                <Link to={'/'} >Shop</Link>
+                <Link to={'/orders'} >Orders</Link>
+                <Link to={'/inventory'} >Inventory</Link>
+                <Link to={'/about'} >About</Link>
                 <Link to={'/login'}>Login</Link>
             </div>
         </div>

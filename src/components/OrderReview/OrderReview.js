@@ -1,10 +1,8 @@
-import React, { useEffect } from 'react';
-
 const OrderReview = () => {
-    useEffect(()=>{}, )
+
     return (
         <div>
-            
+            <h2>Order Review</h2>
         </div>
     );
 };

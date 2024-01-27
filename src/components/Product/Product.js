@@ -12,7 +12,10 @@ const Product = (props) => {
             <div className="product-wrapper px-3 pt-3 ">
                 <img className='w-25 rounded-lg' src={img} alt="" />
                 <div className="info text-lg">
-                    <h3 className='font-normal'>{name.length > (name < 25) ? name.slice(0, 25) : name}</h3>
+                    <h3 className='font-normal'>
+                        {/* {name.length > (name < 25) ? name.slice(0, 20) + '...' : name} */}
+                        {name}
+                    </h3>
                     <p className='mb-3'>Price: ${price}</p>
                     <small>Seller: {seller}</small> <br />
                     <small>Ratings: {ratings}</small>

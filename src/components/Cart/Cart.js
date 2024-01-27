@@ -29,17 +29,22 @@ const Cart = (props) => {
                     <p>Tax: {tax}</p>
                     <h2 className='text-xl'>Grand Total: {grandTotal}</h2>
                 </div>
+
+
+                <div className="mx-auto">
+                    <button className='btn-clear-cart py-1 w-full bg-yellow-400 hover:bg-yellow-600 hover:text-white duration-500'>
+                        Clear Cart
+                        <FontAwesomeIcon className='pl-2' icon={faTrashCan} />
+                    </button> <br />
+                    <button className='mt-5 border w-full py-1 bg-orange-400 hover:bg-orange-600 hover:text-white duration-500'>
+                        {props.children}
+                        <FontAwesomeIcon className='pl-2' icon={faArrowRight} />
+                    </button>
+                </div>
+
+
             </div>
-            <div className="mx-auto">
-                <button className='btn-clear-cart py-1 w-full bg-yellow-400 hover:bg-yellow-600 hover:text-white duration-500'>
-                    Clear Cart
-                    <FontAwesomeIcon className='pl-2' icon={faTrashCan} />
-                </button> <br />
-                <button className='mt-5 border w-full py-1 bg-orange-400 hover:bg-orange-600 hover:text-white duration-500'>
-                    Review Order
-                    <FontAwesomeIcon className='pl-2' icon={faArrowRight} />
-                </button>
-            </div>
+            
         </div>
     );
 };

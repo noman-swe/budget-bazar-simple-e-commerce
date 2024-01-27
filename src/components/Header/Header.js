@@ -2,6 +2,7 @@ import silyLogo from '../../images/budget-bazar.png';
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
+import CoustomLink from '../CoustomLink/CoustomLink';
 
 const Header = () => {
     return (
@@ -10,12 +11,12 @@ const Header = () => {
                 <img className='h-14' src={silyLogo} alt="" />
             </div>
 
-            <div className="header-info mr-32 decoration-none">
-                <Link to={'/'} >Shop</Link>
-                <Link to={'/orders'} >Orders</Link>
-                <Link to={'/inventory'} >Inventory</Link>
-                <Link to={'/about'} >About</Link>
-                <Link to={'/login'}>Login</Link>
+            <div className="header-info mr-32 decoration-none flex">
+                <CoustomLink to={'/'} >Shop</CoustomLink>
+                <CoustomLink to={'/orders'} >Orders</CoustomLink>
+                <CoustomLink to={'/inventory'} >Inventory</CoustomLink>
+                <CoustomLink to={'/about'} >About</CoustomLink>
+                <CoustomLink to={'/login'}>Login</CoustomLink>
             </div>
         </div>
     );

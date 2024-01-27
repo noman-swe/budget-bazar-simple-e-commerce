@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div className='header w-full h-20 flex justify-between items-center bg-slate-200'>
+        <div className='header w-full h-20 flex justify-between items-center ' style={{ 'backgroundColor': '#2C3532' }}>
             <div className="logo ml-32">
                 <img className='h-14' src={silyLogo} alt="" />
             </div>

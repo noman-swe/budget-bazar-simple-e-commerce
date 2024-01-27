@@ -15,20 +15,20 @@ const Shop = () => {
     }, []);
 
     // to show added/storedItems in order summary
-    useEffect(() => {
-        const storedCart = getShoppingCart();
-        let savedCart = [];
-        for (const storedId in storedCart) {
-            const addedProduct = products.find(product => product.id === storedId);
-            if (addedProduct) {
-                const quantity = storedCart[storedId];
-                addedProduct.quantity = quantity;
-                savedCart.push(addedProduct);
-            }
-        }
-        setCart(savedCart);
-
-    }, [products])
+     useEffect(() => {
+         const storedCart = getShoppingCart();
+         let savedCart = [];
+         for (const storedId in storedCart) {
+             const addedProduct = products.find(product => product.id === storedId);
+             if (addedProduct) {
+                 const quantity = storedCart[storedId];
+                 addedProduct.quantity = quantity;
+                 savedCart.push(addedProduct);
+             }
+         }
+         setCart(savedCart);
+ 
+     }, [products])
 
     const handleAddToCart = clickedProduct => {
         let newCart = [];
@@ -36,12 +36,12 @@ const Shop = () => {
         if (!exists) {
             clickedProduct.quantity = 1;
             newCart = [...cart, clickedProduct];
-        }
-        else {
+        } else {
             const rest = cart.filter(product => product.id !== clickedProduct.id);
             exists.quantity = exists.quantity + 1;
             newCart = [...rest, exists];
         }
+
         setCart(newCart);
         addToDb(clickedProduct.id);
     }
@@ -57,7 +57,8 @@ const Shop = () => {
                     ></Product>)
                 }
             </div>
-            <div className="order-container bg-orange-100 ml-10" style={{ 'backgroundColor': '#f7c5c7' }}>
+            <div className="order-container ml-10" style={{ 'backgroundColor': '#EBD8D1' }}>
+                {/*  style={{ 'backgroundColor': '#f7c5c7' }} */}
                 <Cart cart={cart}>  </Cart>
             </div>
         </div>

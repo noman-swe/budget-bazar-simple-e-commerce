@@ -2,33 +2,18 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/localStorageAdd';
+import { addToDb } from '../../utilities/localStorageAdd';
+import useCart from '../../hooks/useCart';
 
 const Shop = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useCart(products);
 
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, []);
-
-    // to show added/storedItems in order summary
-     useEffect(() => {
-         const storedCart = getShoppingCart();
-         let savedCart = [];
-         for (const storedId in storedCart) {
-             const addedProduct = products.find(product => product.id === storedId);
-             if (addedProduct) {
-                 const quantity = storedCart[storedId];
-                 addedProduct.quantity = quantity;
-                 savedCart.push(addedProduct);
-             }
-         }
-         setCart(savedCart);
- 
-     }, [products])
 
     const handleAddToCart = clickedProduct => {
         let newCart = [];

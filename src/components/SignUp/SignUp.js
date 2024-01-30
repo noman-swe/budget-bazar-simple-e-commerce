@@ -1,26 +1,34 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import googleLogo from '../../images/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756-removebg-preview.png';
+import auth from '../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
 
-    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleNameBlur = event => {
-        setName(event.target.value);
-    }
+    // useCreateUserWithEmailAndPassword
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+
     const handleEmailBlur = event => {
         setEmail(event.target.value);
     }
+
     const handlePasswordBlur = event => {
         setPassword(event.target.value);
     }
     const handleConfirmPasswordBlur = event => {
         setConfirmPassword(event.target.value);
+    }
+
+    if (user) {
+        navigate('/shop');
     }
 
     const handleCreateUser = event => {
@@ -31,7 +39,7 @@ const SignUp = () => {
             return;
         }
 
-        console.log({ name, email, password, confirmPassword })
+        createUserWithEmailAndPassword(email, password);
     }
 
     return (
@@ -40,10 +48,7 @@ const SignUp = () => {
                 <h2 className='text-4xl text-center mt-7 text-tomato font-semibold mb-7'>Sign Up</h2>
 
                 <form onSubmit={handleCreateUser}>
-                    <div className=" input-group mb-5">
-                        <label className='block text-xl ml-1 ' htmlFor="name">Name</label>
-                        <input onBlur={handleNameBlur} type="text" className=" text-2xl h-12 border rounded text-slate-800 bg-slate-100" name='name' id='name' autoComplete='on' required />
-                    </div>
+                    
                     <div className=" input-group mb-5">
                         <label className='block text-xl ml-1 ' htmlFor="email">Email</label>
                         <input onBlur={handleEmailBlur} type="email" className=" text-2xl h-12 border rounded text-slate-800 bg-slate-100" name='email' id='email' autoComplete='on' required />
@@ -62,6 +67,7 @@ const SignUp = () => {
 
                     {/* submit button */}
                     <input type="submit" className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 duration-500" value="Sign Up" required />
+                    
                 </form>
 
                 <div className="link-signup mt-2">

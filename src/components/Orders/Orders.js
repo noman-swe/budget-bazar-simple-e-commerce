@@ -14,7 +14,7 @@ const Orders = () => {
 
     const handleRemoveProduct = clickedProduct => {
         const rest = cart.filter(product => product.id !== clickedProduct.id);
-        setCart(rest);
+        setCart(rest); //je guli match hoy nai oi guli rekhe dicchi rest e, baki guli apna apni e baad jbe. then rest k pathaya dicchi cart e.
         removeFormDb(clickedProduct.id);
     }
     return (

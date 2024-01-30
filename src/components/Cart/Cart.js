@@ -20,7 +20,7 @@ const Cart = (props) => {
     const grandTotal = total + shipping + parseFloat(tax);
     return (
         <div className='cart  mt-4  sticky top-0'>
-            <div className="wrapper pl-2">
+            <div className="wrapper p-2">
                 <h3 className='text-2xl mb-10 text-center underline'>Order Summary</h3>
                 <div className="order-info leading-8 mb-12">
                     <p className='text-lg '>Selected Items: {quantity}</p>
@@ -32,11 +32,12 @@ const Cart = (props) => {
 
 
                 <div className="mx-auto">
-                    <button className='btn-clear-cart py-1 w-full bg-yellow-400 hover:bg-yellow-600 hover:text-white duration-500'>
+                    <button className='w-full btn bg-red-400 py-1 mb-3 flex justify-center items-center'>
                         Clear Cart
-                        <FontAwesomeIcon className='pl-2' icon={faTrashCan} />
-                    </button> <br />
-                    <button className='mt-5 border w-full py-1 bg-orange-400 hover:bg-orange-600 hover:text-white duration-500'>
+                        <FontAwesomeIcon className='pl-2' icon={faTrashCan}></FontAwesomeIcon>
+                    </button>
+
+                    <button className='w-full btn bg-orange-400 py-1 flex justify-center items-center'>
                         {props.children}
                         <FontAwesomeIcon className='pl-2' icon={faArrowRight} />
                     </button>
@@ -44,7 +45,7 @@ const Cart = (props) => {
 
 
             </div>
-            
+
         </div>
     );
 };

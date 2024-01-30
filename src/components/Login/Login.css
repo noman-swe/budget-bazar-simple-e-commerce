@@ -1,0 +1,24 @@
+.form-container {
+    width: 600px;
+    border: 1px solid #95A0A7;
+
+    -webkit-box-shadow: -8px 10px 5px 0px #E2AC98;
+    -moz-box-shadow: -8px 10px 5px 0px #E2AC98;
+    box-shadow: -8px 10px 5px 0px #dbbeb3;
+}
+
+.input-group input {
+    width: 415px;
+    height: 55px;
+    border: 1px solid #95A0A7;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 24px;
+    background-color: #f7f4f3;
+}
+
+.form-submit {
+    width: 415px;
+    height: 55px;
+}
+

@@ -4,6 +4,18 @@
 
 }
 
+.text-tomato {
+    color: #3f42da;
+}
+
+.btn-bg-color {
+    background-color: #ebc3b5;
+}
+
+.btn-bg-color:hover {
+    background-color: #E2AC98;
+}
+
 @media screen and (max-width: 980px) {
     .product-container {
         display: grid;

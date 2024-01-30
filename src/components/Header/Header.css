@@ -1,10 +1,18 @@
 .header-info a {
     margin-right: 24px;
-    color:aliceblue;
+    color: aliceblue;
     font-size: 18px;
 }
 
 .header-info a:hover {
     color: #ff5860;
     transition: 500ms;
+}
+
+.hover-text-color:hover {
+    color: #ff5860;
+}
+
+.bg-nav-link-hover:hover {
+    background-color: #374440;
 }

@@ -29,6 +29,7 @@ const SignUp = () => {
 
     if (user) {
         navigate('/shop');
+        console.log(user);
     }
 
     const handleCreateUser = event => {
@@ -48,7 +49,7 @@ const SignUp = () => {
                 <h2 className='text-4xl text-center mt-7 text-tomato font-semibold mb-7'>Sign Up</h2>
 
                 <form onSubmit={handleCreateUser}>
-                    
+
                     <div className=" input-group mb-5">
                         <label className='block text-xl ml-1 ' htmlFor="email">Email</label>
                         <input onBlur={handleEmailBlur} type="email" className=" text-2xl h-12 border rounded text-slate-800 bg-slate-100" name='email' id='email' autoComplete='on' required />
@@ -67,7 +68,7 @@ const SignUp = () => {
 
                     {/* submit button */}
                     <input type="submit" className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 duration-500" value="Sign Up" required />
-                    
+
                 </form>
 
                 <div className="link-signup mt-2">

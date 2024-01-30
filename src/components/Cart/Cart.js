@@ -1,9 +1,13 @@
 import { faArrowRight, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Cart = (props) => {
     const { cart } = props;
+
+    const [user] = useAuthState(auth);
 
     // show products calculation simple
     let total = 0;
@@ -19,8 +23,13 @@ const Cart = (props) => {
     const tax = parseFloat(total * 0.1).toFixed(2);
     const grandTotal = total + shipping + parseFloat(tax);
     return (
-        <div className='cart  mt-4  sticky top-0'>
-            <div className="wrapper p-2">
+        <div className='cart  mt-2  sticky top-0'>
+            <div className="wrapper px-2">
+                
+                {
+                    // user email has sliced before @ and has showed:  
+                    user?.uid && <p className='text-center  mb-3'><small>logged in as : <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
+                }
                 <h3 className='text-2xl mb-10 text-center underline'>Order Summary</h3>
                 <div className="order-info leading-8 mb-12">
                     <p className='text-lg '>Selected Items: {quantity}</p>

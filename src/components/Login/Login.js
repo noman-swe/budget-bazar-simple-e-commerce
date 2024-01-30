@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import googleLogo from '../../images/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756-removebg-preview.png';
 import './Login.css';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+
+    const [signInWithEmailAndPassword, user, loader, error] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -16,9 +20,14 @@ const Login = () => {
         setPassword(event.target.value);
     }
 
+    if (user) {
+        navigate('/shop');
+    }
 
     const handleCreateUser = event => {
         event.preventDefault();
+
+        signInWithEmailAndPassword(email, password);
     }
 
     return (
@@ -35,6 +44,8 @@ const Login = () => {
                         <label className='block text-xl ml-1 ' htmlFor="password">Password</label>
                         <input onBlur={handlePasswordBlur} type="password" className=" text-2xl h-12 border rounded text-slate-800 bg-slate-100" name='password' id='password' autoComplete='on' required />
                     </div>
+
+                    <p className='text-red-600'>{error?.message}</p>
 
                     <input type="submit" className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 duration-500" value="Login" required />
                 </form>

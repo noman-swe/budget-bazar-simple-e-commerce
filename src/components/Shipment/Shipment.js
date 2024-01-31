@@ -30,7 +30,6 @@ const Shipment = () => {
         event.preventDefault();
         setSuccess(alert("Your product is successfully added for shipment"));
         navigate('/orders');
-
     }
     return (
         <div className='form-container border rounded-lg box-border mx-auto mt-20 mb-20 flex justify-center'>

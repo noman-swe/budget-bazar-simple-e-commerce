@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import googleLogo from '../../images/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756-removebg-preview.png';
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SignUp = () => {
 
@@ -13,6 +13,8 @@ const SignUp = () => {
 
     // useCreateUserWithEmailAndPassword
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
     const navigate = useNavigate();
 
@@ -32,6 +34,7 @@ const SignUp = () => {
         console.log(user);
     }
 
+    // sign in with email and password
     const handleCreateUser = event => {
         event.preventDefault();
 
@@ -41,6 +44,12 @@ const SignUp = () => {
         }
 
         createUserWithEmailAndPassword(email, password);
+    }
+
+    // sign in with google account
+    const handleSIgnInWithGoogle = () => {
+        signInWithGoogle();
+
     }
 
     return (
@@ -81,7 +90,7 @@ const SignUp = () => {
                     <div className='flex-grow border-t border-gray-400 ml-5'></div>
                 </div>
 
-                <button className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 flex justify-center items-center duration-500">
+                <button onClick={handleSIgnInWithGoogle} className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 flex justify-center items-center duration-500">
                     <img className='w-10 mr-2' src={googleLogo} alt="" />
                     Continue With Google
                 </button>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../images/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756-removebg-preview.png';
 import './Login.css';
-import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Login = () => {
@@ -14,6 +14,9 @@ const Login = () => {
     const [signInWithEmailAndPassword, loader, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
     const location = useLocation();
+
+    // for google sign in
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
 
     let from = location?.state?.from?.pathname || '/';
 
@@ -32,6 +35,10 @@ const Login = () => {
         event.preventDefault();
 
         signInWithEmailAndPassword(email, password);
+    }
+
+    const handleSIgnInWithGoogle = () => {
+        signInWithGoogle();
     }
 
     return (
@@ -64,7 +71,7 @@ const Login = () => {
                     <div className='flex-grow border-t border-gray-400 ml-5'></div>
                 </div>
 
-                <button className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 flex justify-center items-center duration-500">
+                <button onClick={handleSIgnInWithGoogle} className="form-submit text-xl border rounded-md btn-bg-color cursor-pointer mt-5 flex justify-center items-center duration-500">
                     <img className='w-10 mr-2' src={googleLogo} alt="" />
                     Continue With Google
                 </button>

@@ -32,7 +32,7 @@ const Orders = () => {
             <div className="cart-container w-96 py-12" style={{ 'backgroundColor': '#EBD8D1' }}>
                 <div className="px-2">
                     <Cart cart={cart}>
-                        <button className='' onClick={() => navigate('/inventory')}>Proceed Checkout</button>
+                        <button className='' onClick={() => navigate('/shipment')}>Proceed Checkout</button>
                     </Cart>
                 </div>
             </div>

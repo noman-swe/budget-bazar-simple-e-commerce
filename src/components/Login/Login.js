@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import googleLogo from '../../images/kisspng-google-logo-5b02bbe1d5c6e0.2384399715269058258756-removebg-preview.png';
 import './Login.css';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [user] = useAuthState(auth);
 
-    const [signInWithEmailAndPassword, user, loader, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, loader, error] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location?.state?.from?.pathname || '/';
 
     const handleEmailBlur = event => {
         setEmail(event.target.value);
@@ -21,7 +25,7 @@ const Login = () => {
     }
 
     if (user) {
-        navigate('/shop');
+        navigate(from, { replace: true });
     }
 
     const handleCreateUser = event => {

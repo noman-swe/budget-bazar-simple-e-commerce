@@ -5,6 +5,8 @@ import { addToDb } from '../../utilities/localStorageAdd';
 import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Shop = () => {
     const [products] = useProducts();
@@ -24,11 +26,15 @@ const Shop = () => {
 
         setCart(newCart);
         addToDb(clickedProduct.id);
+        notify();
     }
+
+    const notify = () => toast("Product added to Orders.");
 
     return (
         <div className='shop-container '>
             <div className="product-container grid grid-cols-3 justify-evenly p-5 ml-32 gap-32 mx-auto" style={{ 'margin': '100px' }}>
+
                 {
                     products.map(product => <Product
                         key={product.id}
@@ -40,13 +46,14 @@ const Shop = () => {
             <div className="order-container ml-10" style={{ 'backgroundColor': '#EBD8D1' }}>
                 {
                     <Cart cart={cart}>
-                        
+
                         <Link to={'/orders'}>
                             <button>Review Order</button>
                         </Link>
                     </Cart>
                 }
             </div>
+            <ToastContainer />
         </div>
     );
 };

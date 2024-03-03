@@ -71,7 +71,7 @@ const Header = () => {
                                     ?
                                     <button onClick={handleSignOut} className='outLine' >SignOut</button>
                                     :
-                                    <CoustomLink to={'/login'} className="block   text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
+                                    <CoustomLink to={'/login'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
                             }
                         </button>
                     </div>
@@ -89,12 +89,13 @@ const Header = () => {
                         <CoustomLink to={'/orders'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Orders</CoustomLink>
                         <CoustomLink to={'/inventory'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Inventory</CoustomLink>
                         <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
+                        <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
 
                         <button className="btnOutline">
                             {
                                 user?.uid
                                     ?
-                                    <button onClick={handleSignOut} className='outLine' >SignOut</button>
+                                    <button onClick={handleSignOut} className='outLine'>SignOut</button>
                                     :
                                     <CoustomLink to={'/login'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
                             }

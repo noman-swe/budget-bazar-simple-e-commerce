@@ -1,0 +1,35 @@
+.footer {
+    height: 80px;
+}
+
+@media screen and (max-width: 980px) {
+    .wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 10px;
+
+    }
+
+    .wrapper img {
+        /* padding-right: 5px; */
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+    .wrapper {
+    display: flex;   
+    }
+    .wrapper img {
+       
+    }
+    .wrapper p {
+        
+    }
+}
+
+/*  */
+.logo-img{
+    height: 40px;
+}

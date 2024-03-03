@@ -16,3 +16,7 @@
 .bg-nav-link-hover:hover {
     background-color: #374440;
 }
+
+.outLine {
+    @apply text-red-600 bg-nav-link-hover hover-text-color duration-500 p-1 rounded-xl px-2
+}

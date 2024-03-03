@@ -28,7 +28,7 @@ const Cart = (props) => {
 
                 {
                     // user email has sliced before @ and has showed:  
-                    user?.uid && <p className='text-center  mb-3'><small>Hello! <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
+                    user?.uid && <p className='text-center  mb-3  '><small className='bg-gray-200 px-2 rounded-lg user-name-show-shadow'>Hello! <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
                 }
                 <h3 className='text-2xl mb-10 text-center underline'>Order Summary</h3>
                 <div className="order-info leading-8 mb-12">
@@ -40,7 +40,7 @@ const Cart = (props) => {
                 </div>
 
 
-                <div className="mx-auto">
+                <div className="mx-auto cart-buttons">
                     <button className='w-full btn bg-red-400 py-1 mb-3 flex justify-center items-center'>
                         Clear Cart
                         <FontAwesomeIcon className='pl-2' icon={faTrashCan}></FontAwesomeIcon>

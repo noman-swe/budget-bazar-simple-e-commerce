@@ -28,7 +28,7 @@ const Shop = () => {
 
     return (
         <div className='shop-container '>
-            <div className="product-container grid grid-cols-3 justify-evenly p-5 ml-32 gap-32 " style={{ 'margin': '100px' }}>
+            <div className="product-container grid grid-cols-3 justify-evenly p-5 ml-32 gap-32 mx-auto" style={{ 'margin': '100px' }}>
                 {
                     products.map(product => <Product
                         key={product.id}

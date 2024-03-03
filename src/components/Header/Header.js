@@ -1,10 +1,12 @@
-import silyLogo from '../../images/budget-bazar.png';
-import React from 'react';
+import logo from '../../images/budget-bazar.png';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import CoustomLink from '../CoustomLink/CoustomLink';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
 
@@ -17,29 +19,91 @@ const Header = () => {
         navigate('/login');
     }
 
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isSticky, setSticky] = useState(false);
+
+    const handleToggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 0) {
+                setSticky(true);
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
     return (
-        <div className='header w-full h-20 flex justify-between items-center ' style={{ 'backgroundColor': '#2C3532' }}>
-            <div className="logo ml-32">
-                <img className='h-14' src={silyLogo} alt="" />
-            </div>
+        <header className="w-full ">
+            <nav
+                className={`py-4 md:px-12 px-4  ${isSticky ? "sticky top-0 right-0 left-0 bg-white " : ""
+                    } `} style={{ 'backgroundColor': '#2C3532' }}
+            >
+                <div className="flex items-center justify-between">
+                    <div className="text-white font-bold text-lg cursor-pointer">
+                        <Link to={'/'}>
+                            <img src={logo} alt="" className="h-10" />
+                        </Link>
+                    </div>
 
-            <div className="header-info mr-32 decoration-none text-lg flex">
-                <CoustomLink to={'/'} >Shop</CoustomLink>
-                <CoustomLink to={'/orders'} >Orders</CoustomLink>
-                <CoustomLink to={'/inventory'} >Inventory</CoustomLink>
-                <CoustomLink to={'/about'} >About</CoustomLink>
-                {
-                    user?.uid
-                        ?
-                        <button onClick={handleSignOut} className='text-white bg-nav-link-hover hover-text-color duration-500 p-1 rounded-xl px-2' >SignOut</button>
-                        :
-                        <CoustomLink to={'/login'}>Login</CoustomLink>
-                }
+                    {/* for larger device */}
+                    <div className="lg:flex items-center gap-3 hidden text-body">
+                        <CoustomLink to={'/'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Shop </CoustomLink>
+                        <CoustomLink to={'/orders'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Orders</CoustomLink>
+                        <CoustomLink to={'/inventory'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Inventory</CoustomLink>
+                        <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
 
-                
-            </div>
 
-        </div>
+                    </div>
+
+                    {/* contact me btn */}
+                    <div className="lg:block hidden">
+                        <button className="btnOutline">
+                            {
+                                user?.uid
+                                    ?
+                                    <button onClick={handleSignOut} className='outLine' >SignOut</button>
+                                    :
+                                    <CoustomLink to={'/login'} className="block   text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
+                            }
+                        </button>
+                    </div>
+
+                    {/* btn for small devices */}
+                    <button onClick={handleToggleMenu} className="lg:hidden text-body text-3xl">
+                        <FontAwesomeIcon icon={faBars} />
+                    </button>
+                </div>
+
+                {/* Mobile menu */}
+                {isMenuOpen && (
+                    <div className="mt-4 bg-body p-4 rounded-lg text-black">
+                        <CoustomLink to={'/'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Shop </CoustomLink>
+                        <CoustomLink to={'/orders'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Orders</CoustomLink>
+                        <CoustomLink to={'/inventory'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Inventory</CoustomLink>
+                        <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
+
+                        <button className="btnOutline">
+                            {
+                                user?.uid
+                                    ?
+                                    <button onClick={handleSignOut} className='outLine' >SignOut</button>
+                                    :
+                                    <CoustomLink to={'/login'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
+                            }
+                        </button>
+
+                    </div>
+                )}
+            </nav>
+        </header>
     );
 };
 

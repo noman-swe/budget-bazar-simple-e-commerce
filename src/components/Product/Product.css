@@ -1,3 +1,6 @@
+.product{
+    width: 280px;
+}
 .btn-cart {
     border-radius: 0px 0px 8px 8px;
     background-color: #EBD8D1;
@@ -5,4 +8,10 @@
 
 .btn-cart:hover{
     background-color: #e2ac98;
+}
+
+@media screen and (max-width: 980px) {
+    .product {
+        width: 250px;
+    }
 }

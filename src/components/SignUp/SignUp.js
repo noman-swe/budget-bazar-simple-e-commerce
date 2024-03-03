@@ -49,7 +49,6 @@ const SignUp = () => {
     // sign in with google account
     const handleSIgnInWithGoogle = () => {
         signInWithGoogle();
-
     }
 
     return (

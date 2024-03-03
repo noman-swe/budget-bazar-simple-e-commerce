@@ -16,9 +16,43 @@
     background-color: #E2AC98;
 }
 
+/* shadow for cart user splited email */
+.user-name-show-shadow {
+    box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
 @media screen and (max-width: 980px) {
+    .shop-container {
+        /* margin: 50px; */
+    }
+
     .product-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+    }
+
+    .order-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .shop-container {
+        display: block;
+    }
+
+    .product-container {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0 auto;
+    }
+
+    .order-container {
+        /* height: 500px; */
+        display: none;
+        /* margin: 0 auto; */
     }
 }

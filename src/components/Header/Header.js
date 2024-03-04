@@ -41,7 +41,7 @@ const Header = () => {
 
 
     return (
-        <header className="w-full ">
+        <header className="w-full">
             <nav
                 className={`py-4 md:px-12 px-4  ${isSticky ? "sticky top-0 right-0 left-0 bg-white " : ""
                     } `} style={{ 'backgroundColor': '#2C3532' }}
@@ -49,7 +49,7 @@ const Header = () => {
                 <div className="flex items-center justify-between">
                     <div className="text-white font-bold text-lg cursor-pointer">
                         <Link to={'/'}>
-                            <img src={logo} alt="" className="h-10" />
+                            <img src={logo} alt="" className="h-10 md:w-full w-24" />
                         </Link>
                     </div>
 

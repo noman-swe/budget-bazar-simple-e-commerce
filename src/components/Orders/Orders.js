@@ -18,8 +18,8 @@ const Orders = () => {
         removeFormDb(clickedProduct.id);
     }
     return (
-        <div className='orders-container flex justify-between mx-32 my-28'>
-            <div className="review-items-container w-7/12">
+        <div className='orders-container block lg:flex md:justify-between md:mx-32 md:my-28 my-12 '>
+            <div className="review-items-container md:w-7/12 mx-auto">
                 {
                     cart.map(product => <ReviewItem
                         product={product}
@@ -29,7 +29,7 @@ const Orders = () => {
                     </ReviewItem>)
                 }
             </div>
-            <div className="cart-container w-96 py-12" style={{ 'backgroundColor': '#EBD8D1' }}>
+            <div className="cart-container md:w-96 w-72 mx-auto py-12" style={{ 'backgroundColor': '#EBD8D1' }}>
                 <div className="px-2">
                     <Cart cart={cart}>
                         <button className='' onClick={() => navigate('/shipment')}>Proceed Checkout</button>

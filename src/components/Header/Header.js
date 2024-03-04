@@ -6,7 +6,7 @@ import CoustomLink from '../CoustomLink/CoustomLink';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
 
@@ -20,31 +20,18 @@ const Header = () => {
     }
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isSticky, setSticky] = useState(false);
+    // const [isSticky, setSticky] = useState(false);
+    const [toggleIconX, setToggleIconX] = useState(false);
 
     const handleToggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
+        setToggleIconX(!toggleIconX);
     }
-
-    useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 0) {
-                setSticky(true);
-            }
-        };
-        window.addEventListener("scroll", handleScroll);
-
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
-
 
     return (
         <header className="w-full">
             <nav
-                className={`py-4 md:px-12 px-4  ${isSticky ? "sticky top-0 right-0 left-0 bg-white " : ""
-                    } `} style={{ 'backgroundColor': '#2C3532' }}
+                className={`py-4 md:px-12 px-4 `} style={{ 'backgroundColor': '#2C3532' }}
             >
                 <div className="flex items-center justify-between">
                     <div className="text-white font-bold text-lg cursor-pointer">
@@ -78,7 +65,8 @@ const Header = () => {
 
                     {/* btn for small devices */}
                     <button onClick={handleToggleMenu} className="lg:hidden text-body text-3xl">
-                        <FontAwesomeIcon icon={faBars} />
+                        {toggleIconX ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
+
                     </button>
                 </div>
 

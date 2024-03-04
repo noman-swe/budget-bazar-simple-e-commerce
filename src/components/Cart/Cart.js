@@ -25,13 +25,15 @@ const Cart = (props) => {
     return (
         <div className='cart mt-2 md:sticky md:top-0'>
             <div className="wrapper px-2">
-
-                {
-                    // user email has sliced before @ and has showed:  
-                    user?.uid && <p className='text-center  mb-3  '><small className='bg-gray-200 px-2 rounded-lg user-name-show-shadow'>Hello! <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
-                }
                 <div className="wrapper-summary mx-auto">
-                    <h3 className='text-2xl mb-10 text-center underline'>Order Summary</h3>
+                    <div className='mb-5'>
+                        {
+                            // user email has sliced before @ and has showed:  
+                            user?.uid && <p className='text-center  mb-3'><small className='bg-gray-200 px-2 rounded-lg user-name-show-shadow'>Hello! <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
+                        }
+                    </div>
+                    <h3 className='text-2xl mb-5 text-center underline'>Order Summary</h3>
+
                     <div className="order-info leading-8 mb-12">
                         <p className='text-lg '>Selected Items: {quantity}</p>
                         <p>Total Price: ${total}</p>
@@ -40,8 +42,7 @@ const Cart = (props) => {
                         <h2 className='text-xl'>Grand Total: {grandTotal}</h2>
                     </div>
 
-
-                    <div className="mx-auto cart-buttons">
+                    <div className="mx-auto cart-buttons mb-4">
                         <button className='w-full btn bg-red-400 py-1 mb-3 flex justify-center items-center'>
                             Clear Cart
                             <FontAwesomeIcon className='pl-2' icon={faTrashCan}></FontAwesomeIcon>

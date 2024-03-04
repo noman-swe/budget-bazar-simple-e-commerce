@@ -43,11 +43,11 @@ const Shipment = () => {
             <div className='w-full my-12'>
                 <div className='wrapper md:w-3/6 w-80 mx-auto border pb-32 '>
 
-                    <div className="content w-96">
+                    <div className="content">
                         <div className="login-title my-3">
                             <h2 className='text-4xl text-center'>Shipment</h2>
                         </div>
-                        <form onSubmit={handleCreateUser} className='md:w-96 w-72 md:mx-auto '>
+                        <form onSubmit={handleCreateUser} className='md:w-96 md:mx-auto '>
 
                             <div className="input-group mb-5 ml-7 md:ml-0">
                                 <label className='block mb-1 pl-1'>Name</label>

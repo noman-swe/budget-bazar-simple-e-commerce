@@ -1,5 +1,5 @@
 import logo from '../../images/budget-bazar.png';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import CoustomLink from '../CoustomLink/CoustomLink';
@@ -28,11 +28,10 @@ const Header = () => {
         setToggleIconX(!toggleIconX);
     }
 
+
     return (
         <header className="w-full">
-            <nav
-                className={`py-4 md:px-12 px-4 `} style={{ 'backgroundColor': '#2C3532' }}
-            >
+            <nav className={`py-4 md:px-12 px-4  `} style={{ 'backgroundColor': '#2C3532' }}>
                 <div className="flex items-center justify-between">
                     <div className="text-white font-bold text-lg cursor-pointer">
                         <Link to={'/'}>
@@ -50,7 +49,7 @@ const Header = () => {
 
                     </div>
 
-                    {/* contact me btn */}
+                    {/* Sign in/out - btn */}
                     <div className="lg:block hidden">
                         <button className="btnOutline">
                             {
@@ -63,10 +62,9 @@ const Header = () => {
                         </button>
                     </div>
 
-                    {/* btn for small devices */}
+                    {/* Toggle btn for small devices */}
                     <button onClick={handleToggleMenu} className="lg:hidden text-body text-3xl">
                         {toggleIconX ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
-
                     </button>
                 </div>
 

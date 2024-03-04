@@ -7,7 +7,7 @@ const Product = (props) => {
     const { product, handleAddToCart } = props;
     const { img, name, price, seller, ratings } = product;
     return (
-        <div className='product border w-80 rounded-lg relative' style={{ 'height': '470px' }}>
+        <div className='product border w-80 rounded-lg relative' style={{ 'height': '440px' }}>
 
             <div className="product-wrapper px-3 pt-3 ">
                 <img className='w-25 rounded-lg' src={img} alt=""/>

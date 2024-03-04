@@ -41,7 +41,7 @@ const Shipment = () => {
     return (
 
         <div className='w-full my-12'>
-            <div className='wrapper md:w-3/6 w-80 mx-auto border pb-32 '>
+            <div className='wrapper md:w-3/6 w-80 mx-auto border pb-12 '>
 
                 <div className="content">
                     <div className="shipment-title my-3">

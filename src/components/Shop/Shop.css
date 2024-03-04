@@ -1,7 +1,6 @@
 .shop-container {
     display: grid;
     grid-template-columns: 4fr 1fr;
-
 }
 
 .text-tomato {
@@ -24,10 +23,7 @@
 }
 
 @media screen and (max-width: 980px) {
-    .shop-container {
-        /* margin: 50px; */
-    }
-
+    
     .product-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -51,8 +47,6 @@
     }
 
     .order-container {
-        /* height: 500px; */
         display: none;
-        /* margin: 0 auto; */
     }
 }

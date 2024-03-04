@@ -7,10 +7,10 @@ const Product = (props) => {
     const { product, handleAddToCart } = props;
     const { img, name, price, seller, ratings } = product;
     return (
-        <div className='product border w-80 rounded-lg relative' style={{ 'height': '540px' }}>
+        <div className='product border w-80 rounded-lg relative' style={{ 'height': '470px' }}>
 
             <div className="product-wrapper px-3 pt-3 ">
-                <img className='w-25 rounded-lg' src={img} alt="" />
+                <img className='w-25 rounded-lg' src={img} alt=""/>
                 <div className="info text-lg">
                     <h3 className='font-normal'>
                         {/* {name.length > (name < 25) ? name.slice(0, 20) + '...' : name} */}

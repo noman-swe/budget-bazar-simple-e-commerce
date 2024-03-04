@@ -24,8 +24,8 @@ const Cart = (props) => {
     const grandTotal = total + shipping + parseFloat(tax);
     return (
         <div className='cart mt-2 md:sticky md:top-0'>
-            <div className="wrapper px-2">
-                <div className="wrapper-summary mx-auto">
+            <div className="px-2">
+                <div className="mx-auto">
                     <div className='mb-5'>
                         {
                             // user email has sliced before @ and has showed:  

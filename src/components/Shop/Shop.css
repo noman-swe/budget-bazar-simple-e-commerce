@@ -24,7 +24,12 @@
 
 /* manage Products */
 .manage-product {
-    background-color:lavender;
+    background-color: lavender;
+}
+
+/* pagination */
+.pagination .selected {
+    background-color: #f0c8ba;
 }
 
 @media screen and (max-width: 980px) {

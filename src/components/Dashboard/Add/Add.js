@@ -11,7 +11,7 @@ const Add = () => {
 
 
         // send to the backend and then backend will send to the db
-        const url = `http://localhost:5000/products/`;
+        const url = `http://localhost:5000/product/`;
         fetch(url, {
             method: 'POST',
             headers: {

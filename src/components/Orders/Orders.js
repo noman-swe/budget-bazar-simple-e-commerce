@@ -13,9 +13,9 @@ const Orders = () => {
     const navigate = useNavigate();
 
     const handleRemoveProduct = clickedProduct => {
-        const rest = cart.filter(product => product.id !== clickedProduct.id);
+        const rest = cart.filter(product => product._id !== clickedProduct._id);
         setCart(rest); //je guli match hoy nai oi guli rekhe dicchi rest e, baki guli apna apni e baad jbe. then rest k pathaya dicchi cart e.
-        removeFormDb(clickedProduct.id);
+        removeFormDb(clickedProduct._id);
     }
     return (
         <div className='orders-container block lg:flex md:justify-between md:mx-32 md:my-28 my-12 '>
@@ -23,7 +23,7 @@ const Orders = () => {
                 {
                     cart.map(product => <ReviewItem
                         product={product}
-                        key={product.id}
+                        key={product._id}
                         handleRemoveProduct={handleRemoveProduct}
                     >
                     </ReviewItem>)

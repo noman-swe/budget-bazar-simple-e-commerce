@@ -1,15 +1,12 @@
 import useProducts from '../../../hooks/useProducts';
 import Product from './Product/Product';
 import '../../Shop/Shop.css';
-import { useNavigate } from 'react-router-dom';
 
 const Manage = () => {
     const [products, setProducts] = useProducts();
-    const navigate = useNavigate();
-
+  
     const handleDelete = id => {
-        console.log(id);
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `http://localhost:5000/product/${id}`;
         fetch(url, {
             method: 'DELETE',
         })

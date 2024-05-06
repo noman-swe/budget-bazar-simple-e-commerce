@@ -43,6 +43,7 @@ const Product = ({ product, handleDelete }) => {
                     <FontAwesomeIcon className='pl-2' icon={faPenToSquare}>Update</FontAwesomeIcon>
                 </Link>
                 </button>
+                
                 <button className='w-1/2 bg-red-500 py-2 coustom-delete' onClick={() => handleDelete(product._id)}> Delete
                     <FontAwesomeIcon className='pl-2' icon={faXmark}>Delete</FontAwesomeIcon>
                 </button>

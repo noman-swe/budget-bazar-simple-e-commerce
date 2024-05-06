@@ -50,7 +50,7 @@ const Cart = (props) => {
 
                         <button className='w-full btn bg-orange-400 py-1 flex justify-center items-center'>
                             {props.children}
-                            <FontAwesomeIcon className='pl-2' icon={faArrowRight} />
+                            <FontAwesomeIcon className='pl-2' icon={faArrowRight} > </FontAwesomeIcon>
                         </button>
                     </div>
                 </div>

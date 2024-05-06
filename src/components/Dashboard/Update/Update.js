@@ -10,7 +10,7 @@ const Update = () => {
     const notify = () => toast("Successfully updated!");
     const onSubmit = data => {
         console.log(data);
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `http://localhost:5000/product/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -27,7 +27,7 @@ const Update = () => {
     const number = "Numbers Only.";
 
     useEffect(() => {
-        const url = `http://localhost:5000/products/${id}`;
+        const url = `http://localhost:5000/product/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data))

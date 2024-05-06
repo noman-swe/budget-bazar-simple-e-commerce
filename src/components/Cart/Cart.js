@@ -32,7 +32,7 @@ const Cart = (props) => {
                             user?.uid && <p className='text-center  mb-3'><small className='bg-gray-200 px-2 rounded-lg user-name-show-shadow'>Hello! <span className=' text-tomato'>{(user?.email).substring(0, user?.email.indexOf('@'))}</span></small></p>
                         }
                     </div>
-                    <h3 className='text-2xl mb-5 text-center underline'>Order Summary</h3>
+                    <h3 className='text-2xl mb-5 text-center underline'>Order Summary </h3>
 
                     <div className="order-info leading-8 mb-12">
                         <p className='text-lg '>Selected Items: {quantity}</p>

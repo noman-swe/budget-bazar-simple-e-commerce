@@ -11,6 +11,9 @@ import Shipment from './components/Shipment/Shipment';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/FooterContainer/Footer/Footer';
 import NotFound from './components/SharedPages/NotFound/NotFound';
+import Manage from './components/Dashboard/Manage/Manage';
+import Add from './components/Dashboard/Add/Add';
+import Update from './components/Dashboard/Update/Update';
 
 
 function App() {
@@ -27,6 +30,10 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+        {/* dashboard */}
+        <Route path='/manage' element={<RequireAuth><Manage></Manage></RequireAuth>}></Route>
+        <Route path='/update/:id' element={<Update></Update>}></Route>
+        <Route path='/add' element={<RequireAuth><Add></Add></RequireAuth>}></Route>
 
       </Routes>
       <Footer></Footer>

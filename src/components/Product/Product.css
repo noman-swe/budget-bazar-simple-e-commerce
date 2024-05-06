@@ -1,14 +1,33 @@
-.product{
+.product {
     width: 280px;
 }
+
 .btn-cart {
     border-radius: 0px 0px 8px 8px;
     background-color: #EBD8D1;
 }
 
-.btn-cart:hover{
+.btn-cart:hover {
     background-color: #e2ac98;
 }
+
+/* product-admin */
+.product-admin {
+    background-color: #fff;
+}
+
+.coustom-update {
+    border-radius: 0px 0px 0px 8px;
+}
+
+.coustom-delete {
+    border-radius: 0px 0px 8px 0px;
+}
+
+.line {
+    border: 1px solid rgb(189, 185, 185);
+}
+
 
 @media screen and (max-width: 980px) {
     .product {

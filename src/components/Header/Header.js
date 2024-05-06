@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faX } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
-
     const [user] = useAuthState(auth);
     const [signOut] = useSignOut(auth);
     const navigate = useNavigate();
@@ -51,7 +50,15 @@ const Header = () => {
 
                     {/* Sign in/out - btn */}
                     <div className="lg:block hidden">
-                        <button className="btnOutline">
+
+
+                        <button className="btnOutline flex justify-center items-center" >
+                            {
+                                user?.uid && <span className='text-gray-500 flex'>
+                                    <CoustomLink to={'/manage'} className='py-2 mx-4'>Manage</CoustomLink>
+                                    <CoustomLink to={'/add'} className='py-2 px-4'>Add</CoustomLink>
+                                </span>
+                            }
                             {
                                 user?.uid
                                     ?
@@ -69,28 +76,42 @@ const Header = () => {
                 </div>
 
                 {/* Mobile menu */}
-                {isMenuOpen && (
-                    <div className="mt-4 bg-body p-4 rounded-lg text-black">
-                        <CoustomLink to={'/'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Shop </CoustomLink>
-                        <CoustomLink to={'/orders'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Orders</CoustomLink>
-                        <CoustomLink to={'/inventory'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Inventory</CoustomLink>
-                        <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
-                        <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
+                {
+                    isMenuOpen && (
+                        <div className="mt-4 bg-body p-4 rounded-lg text-black">
+                            <CoustomLink to={'/'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Shop </CoustomLink>
+                            <CoustomLink to={'/orders'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer"> Orders</CoustomLink>
+                            <CoustomLink to={'/inventory'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Inventory</CoustomLink>
+                            <CoustomLink to={'/about'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">About</CoustomLink>
 
-                        <button className="btnOutline">
+
+
+
                             {
-                                user?.uid
-                                    ?
-                                    <button onClick={handleSignOut} className='outLine'>SignOut</button>
-                                    :
-                                    <CoustomLink to={'/login'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
-                            }
-                        </button>
+                                user?.uid && <>
+                                    <CoustomLink to={'/manage'}> manage </CoustomLink>
+                                    <CoustomLink to={'/add'}>  add </CoustomLink>
 
-                    </div>
-                )}
-            </nav>
-        </header>
+
+                                </>
+                            }
+
+                            <button className="btnOutline">
+
+                                {
+                                    user?.uid
+                                        ?
+                                        <button onClick={handleSignOut} className='outLine'></button>
+                                        :
+                                        <CoustomLink to={'/login'} className="block text-gray-400 hover:text-white py-2 px-4 cursor-pointer">Login</CoustomLink>
+                                }
+                            </button>
+
+                        </div>
+                    )
+                }
+            </nav >
+        </header >
     );
 };
 

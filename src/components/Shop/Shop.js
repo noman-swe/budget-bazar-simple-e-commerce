@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 const Shop = () => {
     // const [products] = useProducts();
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
     const [pageCount, setPageCount] = useState(0); //value 0 dilam coz number input jabe;
     const [page, setPage] = useState(0); //for button's onclick whick will give output of the selected page no and change the color
     const [size, setSize] = useState(10);
@@ -35,7 +35,8 @@ const Shop = () => {
                 const pages = Math.ceil(count / 10);//total page/10 = 7
                 setPageCount(pages);
             })
-    }, [])
+    }, []);
+
 
     const handleAddToCart = clickedProduct => {
         let newCart = [];

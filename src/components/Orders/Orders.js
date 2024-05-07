@@ -8,7 +8,7 @@ import Cart from '../Cart/Cart';
 
 const Orders = () => {
     const [products] = useProducts();
-    const [cart, setCart] = useCart(products);
+    const [cart, setCart] = useCart();
 
     const navigate = useNavigate();
 

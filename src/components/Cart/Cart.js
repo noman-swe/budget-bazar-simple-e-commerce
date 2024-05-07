@@ -6,9 +6,8 @@ import auth from '../../firebase.init';
 
 const Cart = (props) => {
     const { cart } = props;
-
+    // console.log(cart);
     const [user] = useAuthState(auth);
-
     // show products calculation simple
     let total = 0;
     let quantity = 0;
